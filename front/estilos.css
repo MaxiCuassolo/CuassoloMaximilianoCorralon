@@ -1,0 +1,549 @@
+/* ============================================================
+   Estilos - Corralón Don Pedro (Clase 15)
+   ============================================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background-color: #f6f4f2;
+    color: #2d2420;
+}
+
+.encabezado {
+    background-color: #4e342e;
+    color: #ffffff;
+    text-align: center;
+    padding: 24px 16px;
+}
+
+.encabezado p {
+    opacity: 0.85;
+}
+
+.principal {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    max-width: 1200px;
+    margin: 24px auto;
+    padding: 0 16px;
+    align-items: flex-start;
+}
+
+.seccion {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    flex: 1 1 300px;
+}
+
+.seccion.ancha {
+    flex: 2 1 620px;
+}
+
+.seccion h2 {
+    color: #4e342e;
+    margin-bottom: 14px;
+}
+
+/* --- Formulario --- */
+label {
+    display: block;
+    font-weight: 600;
+    margin: 12px 0 4px;
+}
+
+select,
+textarea,
+input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #c4ada0;
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: inherit;
+    background-color: #ffffff;
+}
+
+select:focus,
+textarea:focus,
+input[type="number"]:focus {
+    outline: 2px solid #ef6c00;
+    border-color: transparent;
+}
+
+.btn {
+    border: none;
+    border-radius: 6px;
+    padding: 9px 14px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-principal {
+    width: 100%;
+    margin-top: 16px;
+    background-color: #ef6c00;
+    color: #ffffff;
+}
+
+.btn-principal:hover {
+    background-color: #bf360c;
+}
+
+.btn-iniciar {
+    background-color: #4e342e;
+    color: #ffffff;
+}
+
+.btn-terminar {
+    background-color: #2e7d32;
+    color: #ffffff;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+/* --- Mensajes --- */
+.mensaje {
+    margin-top: 10px;
+    font-weight: 600;
+    min-height: 20px;
+}
+
+.mensaje.ok {
+    color: #2e7d32;
+}
+
+.mensaje.error {
+    color: #c62828;
+}
+
+.nota {
+    margin-top: 18px;
+    background-color: #efe9e4;
+    border-left: 4px solid #ef6c00;
+    border-radius: 0 6px 6px 0;
+    padding: 10px 12px;
+    font-size: 13px;
+}
+
+/* --- Tabla --- */
+.tabla {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+}
+
+.tabla th {
+    background-color: #4e342e;
+    color: #ffffff;
+    text-align: left;
+    padding: 8px;
+}
+
+.tabla td {
+    border-bottom: 1px solid #e0e0e0;
+    padding: 8px;
+    vertical-align: middle;
+}
+
+.tabla tr:hover td {
+    background-color: #f8f5f2;
+}
+
+.patente {
+    font-family: "Consolas", monospace;
+    font-weight: 700;
+    background-color: #efe9e4;
+    border-radius: 4px;
+    padding: 2px 6px;
+    display: inline-block;
+}
+
+.detalle-vehiculo {
+    color: #7d6a5f;
+    font-size: 12px;
+}
+
+/* --- Estados --- */
+.estado {
+    display: inline-block;
+    border-radius: 12px;
+    padding: 3px 10px;
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.estado-ingresada {
+    background-color: #fff3e0;
+    color: #bf360c;
+}
+
+.estado-reparacion {
+    background-color: #e3f2fd;
+    color: #4e342e;
+}
+
+.estado-terminada {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+}
+
+/* --- Terminar: costo inline --- */
+.accion-terminar {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+
+.accion-terminar input {
+    width: 110px;
+}
+
+.pie {
+    background-color: #4e342e;
+    color: #ffffff;
+    text-align: center;
+    padding: 14px;
+    margin-top: 32px;
+    font-size: 13px;
+}
+
+/* --- Extras Clase 12 --- */
+input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #c4ada0;
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: inherit;
+}
+
+input[type="text"]:focus {
+    outline: 2px solid #ef6c00;
+    border-color: transparent;
+}
+
+.estado-encargado {
+    background-color: #fff3e0;
+    color: #bf360c;
+}
+
+.estado-listo {
+    background-color: #e3f2fd;
+    color: #4e342e;
+}
+
+.estado-entregado {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+}
+
+.sin-stock {
+    color: #c62828;
+    font-weight: 700;
+}
+
+/* --- Extras Clase 13: la grilla de tarjetas de sabor --- */
+.subtitulo {
+    color: #4e342e;
+    margin: 18px 0 8px;
+    font-size: 15px;
+}
+
+.grilla-sabores {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    gap: 10px;
+}
+
+.tarjeta-sabor {
+    background-color: #ffffff;
+    border: 2px solid #c4ada0;
+    border-radius: 10px;
+    padding: 12px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 6px;
+    user-select: none;
+    transition: transform 0.08s ease;
+}
+
+.tarjeta-sabor:hover {
+    transform: translateY(-2px);
+}
+
+.tarjeta-sabor.seleccionada {
+    border-color: #ef6c00;
+    background-color: #fdeef4;
+}
+
+.tarjeta-sabor.agotada {
+    opacity: 0.55;
+    cursor: not-allowed;
+    background-color: #eef1f5;
+}
+
+.nombre-sabor {
+    font-weight: 600;
+    font-size: 13.5px;
+}
+
+.tilde {
+    color: #ef6c00;
+    font-weight: 700;
+    font-size: 18px;
+    min-width: 18px;
+}
+
+.cartel-agotado {
+    color: #c62828;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.selector-tamanio {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+.selector-tamanio label {
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin: 0;
+}
+
+.resumen {
+    background-color: #efe9e4;
+    border-radius: 8px;
+    padding: 12px 14px;
+    min-height: 52px;
+}
+
+.resumen-vacio {
+    color: #7d6a5f;
+    font-size: 13.5px;
+}
+
+.lista-resumen {
+    margin: 0 0 6px 18px;
+    font-size: 13.5px;
+}
+
+.total-resumen {
+    font-size: 14px;
+}
+
+.aclaracion {
+    color: #7d6a5f;
+    font-size: 12px;
+}
+
+.form-final {
+    display: flex;
+    gap: 10px;
+    margin-top: 14px;
+    flex-wrap: wrap;
+}
+
+.form-final input {
+    flex: 1 1 220px;
+}
+
+.form-final .btn-principal {
+    width: auto;
+    margin-top: 0;
+    flex: 0 0 auto;
+}
+
+.btn-avanzar {
+    background-color: #4e342e;
+    color: #ffffff;
+}
+
+.celda-sabores {
+    font-size: 12.5px;
+    max-width: 220px;
+}
+
+.estado-pendiente {
+    background-color: #fff3e0;
+    color: #bf360c;
+}
+
+.estado-retirado {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+}
+
+/* --- Extras Clase 14 --- */
+.filtro-categorias {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+}
+
+.btn-filtro {
+    border: 1.5px solid #4e342e;
+    background-color: #ffffff;
+    color: #4e342e;
+    border-radius: 16px;
+    padding: 6px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-filtro.activo {
+    background-color: #4e342e;
+    color: #ffffff;
+}
+
+.grilla-productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    gap: 12px;
+}
+
+.tarjeta-producto {
+    background-color: #ffffff;
+    border: 1.5px solid #c4ada0;
+    border-radius: 10px;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.tarjeta-producto.agotada {
+    opacity: 0.6;
+}
+
+.categoria-producto {
+    font-size: 11px;
+    font-weight: 700;
+    color: #ef6c00;
+    text-transform: uppercase;
+}
+
+.nombre-producto {
+    font-size: 14.5px;
+    color: #2d2420;
+}
+
+.precio-producto {
+    font-size: 17px;
+    font-weight: 700;
+    color: #4e342e;
+}
+
+.stock-producto {
+    font-size: 12.5px;
+    color: #7d6a5f;
+}
+
+/* --- Extras Clase 15: el carrito --- */
+.lista-carrito {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.carrito-vacio {
+    color: #7d6a5f;
+    font-size: 13.5px;
+    padding: 10px 0;
+}
+
+.item-carrito {
+    background-color: #efe9e4;
+    border-radius: 8px;
+    padding: 8px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+}
+
+.item-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.item-nombre {
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.item-subtotal {
+    font-size: 12px;
+    color: #7d6a5f;
+}
+
+.item-controles {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.btn-mini {
+    background-color: #4e342e;
+    color: #ffffff;
+    border-radius: 6px;
+    padding: 3px 9px;
+    font-size: 14px;
+    line-height: 1.2;
+}
+
+.btn-quitar {
+    background-color: #bf360c;
+}
+
+.item-cantidad {
+    min-width: 22px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.total-linea {
+    font-size: 16px;
+    margin-bottom: 12px;
+}
+
+.btn-vaciar {
+    width: 100%;
+    margin-top: 8px;
+    background-color: transparent;
+    border: 1.5px solid #bf360c;
+    color: #bf360c;
+}
+
+.btn-agregar {
+    background-color: #ef6c00;
+    color: #ffffff;
+    padding: 5px 10px;
+    font-size: 12.5px;
+}
+
+.fila-agotada td {
+    opacity: 0.55;
+}
