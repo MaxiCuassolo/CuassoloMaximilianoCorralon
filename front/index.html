@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corralón Don Pedro</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <header class="encabezado">
+        <h1>Corralón Don Pedro</h1>
+        <p>Presupuestador de materiales</p>
+    </header>
+
+    <main class="principal">
+        <!-- ================= Catálogo ================= -->
+        <section class="seccion ancha">
+            <h2>Materiales</h2>
+
+            <table class="tabla">
+                <thead>
+                    <tr>
+                        <th>Material</th>
+                        <th>Unidad</th>
+                        <th>Precio</th>
+                        <th>Stock</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="cuerpoMateriales">
+                    <tr><td colspan="5">Cargando materiales...</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- ================= Carrito ================= -->
+        <section class="seccion">
+            <h2>Presupuesto en armado</h2>
+
+            <ul id="listaCarrito" class="lista-carrito">
+                <li class="carrito-vacio">El carrito está vacío.</li>
+            </ul>
+
+            <p class="total-linea">
+                Total estimado: <strong id="totalCarrito">$ 0</strong>
+            </p>
+
+            <form id="formPresupuesto" class="form-final">
+                <input type="text" id="cliente" maxlength="80"
+                    placeholder="Cliente" required>
+                <button type="submit" class="btn btn-principal">Guardar</button>
+            </form>
+            <button type="button" id="btnVaciar" class="btn btn-vaciar">
+                Vaciar carrito
+            </button>
+
+            <p id="mensajeCarrito" class="mensaje"></p>
+
+            <div class="nota">
+                <strong>Regla de la clase:</strong> el carrito guarda solo
+                <code>{ id, cantidad }</code>. Nombres, precios y el total
+                se <em>calculan</em> al renderizar — lo que se puede derivar,
+                no se almacena. Y el total FINAL lo confirma la base.
+            </div>
+        </section>
+
+        <!-- ================= Historial ================= -->
+        <section class="seccion ancha">
+            <h2>Presupuestos guardados</h2>
+
+            <table class="tabla">
+                <thead>
+                    <tr>
+                        <th>N°</th>
+                        <th>Cliente</th>
+                        <th>Items</th>
+                        <th>Total</th>
+                        <th>Fecha</th>
+                    </tr>
+                </thead>
+                <tbody id="cuerpoPresupuestos">
+                    <tr><td colspan="5">Cargando...</td></tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer class="pie">
+        Programación II · Clase 15 · Instituto Superior Villa del Rosario · 2026
+    </footer>
+
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>
