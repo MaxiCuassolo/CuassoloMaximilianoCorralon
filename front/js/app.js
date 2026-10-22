@@ -55,7 +55,7 @@ function cantidadEnCarrito(id) {
 function calcularTotal() {
     return estado.carrito.reduce((total, item) => {
         const material = buscarMaterial(item.id);
-        return total + material.Precio * item.cantidad;
+        return total + (material ? material.Precio * item.cantidad : 0);
     }, 0);
 }
 
@@ -77,7 +77,10 @@ function renderCarrito() {
     }
 
     listaCarrito.innerHTML = estado.carrito
-        .map(item => crearItemCarrito(buscarMaterial(item.id), item.cantidad))
+        .map(item => {
+            const material = buscarMaterial(item.id);
+            return material ? crearItemCarrito(material, item.cantidad) : "";
+        })
         .join("");
 
     totalCarrito.textContent = formatearPrecio(calcularTotal());
@@ -115,6 +118,9 @@ async function renderPresupuestos() {
 // ------------------------------------------------------------
 function agregarAlCarrito(id) {
     const material = buscarMaterial(id);
+    if (!material) {
+        return;
+    }
     const actual = cantidadEnCarrito(id);
 
     if (actual + 1 > material.Stock) {
@@ -143,6 +149,10 @@ function quitarDelCarrito(id) {
     estado.carrito = estado.carrito.filter(item => item.id !== id);
 }
 
+function vaciarCarrito() {
+    estado.carrito = [];
+}
+
 // ------------------------------------------------------------
 // EVENTOS (delegación con data-accion + data-id)
 // ------------------------------------------------------------
@@ -160,15 +170,17 @@ function manejarAccion(evento) {
     }
 
     const accion = ACCIONES[boton.dataset.accion];
-    accion(Number(boton.dataset.id));
-    renderTodo();
+    if (typeof accion === "function") {
+        accion(Number(boton.dataset.id));
+        renderTodo();
+    }
 }
 
 cuerpoMateriales.addEventListener("click", manejarAccion);
 listaCarrito.addEventListener("click", manejarAccion);
 
 btnVaciar.addEventListener("click", () => {
-    estado.carrito = [];
+    vaciarCarrito();
     renderTodo();
 });
 
@@ -189,7 +201,7 @@ formPresupuesto.addEventListener("submit", async (evento) => {
             "ok"
         );
 
-        estado.carrito = [];
+        vaciarCarrito();
         formPresupuesto.reset();
 
         // El stock cambió en la base: se recarga el catálogo
